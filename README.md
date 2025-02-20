@@ -18,6 +18,8 @@ The following are core technologies/tools that should be present in the solution
 - Helm Chart
 - Terraform to interact with the Kubernetes cluster
 
+You have the flexibility to utilize any cloud provider of your choice to deploy and run the application effectively. Additionally, it should be designed to operate seamlessly on local machines, allowing for a versatile setup that caters to various operational preferences and environments.
+
 ## Plus:
 
 - Create a CI Pipeline in Github to automate the application lifecycle
