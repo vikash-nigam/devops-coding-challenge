@@ -32,6 +32,10 @@ You have the flexibility to utilize any cloud provider of your choice to deploy 
 - All the tools used must be publicly accessible or explicitly documented on how to authenticate.
 - All the tools must be free to use.
 
+ ## Submission:
+- Provide the link to your GitHub repository in the Greenhouse submission form.
+- Submit your completed project via the Greenhouse link in the email received from the Recruitment Manager.
+
 ## Challenge Application
 
 A Spring Boot application that provides a simple user management REST API.
@@ -61,3 +65,4 @@ Retrieves a user by ID
 #### POST /user
 
 Creates a new user
+
