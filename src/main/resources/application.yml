@@ -1,20 +1,26 @@
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME:app}
+    name: challenge-app
   datasource:
-    username: ${SPRING_DATASOURCE_USERNAME:root}
-    password: ${SPRING_DATASOURCE_PASSWORD:dev}
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/challenge?createDatabaseIfNotExist=true}
+    url: jdbc:mysql://springboot-mysql.cdu0wim8ibl6.ap-southeast-1.rds.amazonaws.com:3306/springboot-mysql?createDatabaseIfNotExist=true
+    username: admin
+    password: Welcome123
     driver-class-name: com.mysql.cj.jdbc.Driver
   flyway:
-    url: ${SPRING_DATASOURCE_WRITER_URL:jdbc:mysql://localhost:3306/challenge?createDatabaseIfNotExist=true}
-    user: ${SPRING_DATASOURCE_USERNAME:root}
-    password: ${SPRING_DATASOURCE_PASSWORD:dev}
+    url: jdbc:mysql://springboot-mysql.cdu0wim8ibl6.ap-southeast-1.rds.amazonaws.com:3306/springboot-mysql?createDatabaseIfNotExist=true
+    user: admin
+    password: Welcome123
     enabled: true
-
 
 management:
   endpoints:
     web:
       exposure:
-        include: ${ACTUATOR_ENDPOINTS:health,info,prometheus}
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+    mappings:
+      enabled: true
