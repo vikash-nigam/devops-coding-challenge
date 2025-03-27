@@ -1,68 +1,101 @@
-# Crewmeister Challenge
+# DevOps Coding Challenge
 
-## Background
+## Project Overview
 
-At Crewmeister, our development team is continuously growing. We aim to hire the best educated, motivated, and enthusiastic people in the field who have fun building up Crewmeister in our vision to empower small businesses to thrive in a digital world. For this quest, we are continuously getting new applicants from all over the world. To filter which candidates could be a good fit, we provide our candidates with a coding challenge that we manually review and evaluate.
+This project is a **Spring Boot Application** deployed using **Helm, Docker, and Terraform**. It includes configurations for Kubernetes (K8s) monitoring using Prometheus and automated deployment.
 
----
+## Features
 
-## DevOps Engineer Task
+- Spring Boot application setup
+- Helm charts for Kubernetes deployment
+- Docker support
+- Terraform configurations for AWS infrastructure
+- Prometheus monitoring setup
 
-As a DevOps Engineer at Crewmeister, you will be in charge of several challenging tasks in your daily work. One of your core responsibilities will be to ensure that the system is always running smoothly and that the application is deployed successfully to our customers.
+## Prerequisites
 
-In this challenge, you should use DevOps best practices to architect and implement the complete cycle of building, packaging, and deploying a Java application (specified later in this document). 
+Ensure you have the following installed:
 
-The following are core technologies/tools that should be present in the solution:
+- Docker
+- Kubernetes (Minikube or any cluster)
+- Helm
+- Terraform
+- AWS CLI (for cloud deployments)
+- Git
 
-- Dockerfile
-- Helm Chart
-- Terraform to interact with the Kubernetes cluster
+## Installation & Setup
 
-You have the flexibility to utilize any cloud provider of your choice to deploy and run the application effectively. Additionally, it should be designed to operate seamlessly on local machines, allowing for a versatile setup that caters to various operational preferences and environments.
+### 1. Clone the Repository
 
-## Plus:
+```bash
+git clone https://github.com/your-repo/devops-coding-challenge.git
+cd devops-coding-challenge
+```
 
-- Create a CI Pipeline in Github to automate the application lifecycle
+### 2. Build the Docker Image
 
-- Add monitoring tools to check the health of the application
+```bash
+docker build -t my-springboot-app .
+```
 
-## Important Points:
+### 3. Run with Docker
 
-- At Crewmeister, we value creativity and pushing for better. You are encouraged to expand the solution as you find fit. To do so, you must ensure high-quality documentation and that the base solution is correctly executed.
-- All the tools used must be publicly accessible or explicitly documented on how to authenticate.
-- All the tools must be free to use.
+```bash
+docker run -p 8080:8080 my-springboot-app
+```
 
- ## Submission:
-- Provide the link to your GitHub repository in the Greenhouse submission form.
-- Submit your completed project via the Greenhouse link in the email received from the Recruitment Manager.
+### 4. Deploy to Kubernetes using Helm
 
-## Challenge Application
+```bash
+helm upgrade --install my-app ./springboot-app
+```
 
-A Spring Boot application that provides a simple user management REST API.
+### 5. Deploy AWS Infrastructure with Terraform
 
-### Technologies Used
+```bash
+cd terraform
+terraform init
+terraform apply
+```
 
-- Java 17
-- Spring Boot 3.3.5
-- MySQL Database
-- Flyway Migration
-- Maven
-- Spring Data JPA
-- Spring Actuator
+## Monitoring with Prometheus
 
-### Pre-requisites
+To install Prometheus with Helm:
 
-- JDK 17
-- MySQL
-- Maven
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/kube-prometheus-stack -f values.yaml
+```
 
-### API Endpoints
+## File Structure
 
-#### GET /user
+```
+├── Dockerfile
+├── terraform/
+│   ├── eks/
+│   ├── rds/
+├── springboot-app/
+│   ├── templates/
+│   ├── values.yaml
+│   ├── Chart.yaml
+├── src/
+│   ├── main/
+│   ├── resources/
+│   │   ├── application.yml
+└── README.md
+```
 
-Retrieves a user by ID
+## Contributing
 
-#### POST /user
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a pull request.
 
-Creates a new user
+## License
+
+This project is licensed under the MIT License.
+
 
